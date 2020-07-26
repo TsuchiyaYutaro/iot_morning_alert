@@ -18,3 +18,6 @@ https://www.switch-science.com/catalog/3648/
 - HTTPS の中間証明書
 - Wi-Fi の SSID, PASSWORD
 - slack の WebHooks の `services/~`
+
+# Demonstration
+https://www.youtube.com/watch?v=AkF9l1VCsu8
