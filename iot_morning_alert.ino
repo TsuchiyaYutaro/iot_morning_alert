@@ -2,21 +2,27 @@
 
 #include <M5Stack.h>
 #include <WiFi.h>
+#include <HTTPClient.h>
 #include "time.h"
 
-#include <HTTPClient.h>
-const char *server = "hooks.slack.com";
-const char *json_text = "{\"text\":\"Good Morning!\",\"username\":\"Sora\"}";
+/// -- 以下，入力 -------------------------------------------
 
 const char * slack_sub_ca = 
 "-----BEGIN CERTIFICATE-----\n"
 
 "-----END CERTIFICATE-----\n" ;
 
-HTTPClient http;
-
 const char* ssid     = "ssid";
 const char* password = "password";
+
+slack_hock = "/services/xxx/yyy/zzz"
+
+/// ------------------------------------------------------
+
+HTTPClient http;
+
+const char *server = "hooks.slack.com";
+const char *json_text = "{\"text\":\"Good Morning!\",\"username\":\"MOTHER\"}";
 
 const char* ntpServer = "ntp.nict.jp";
 const long  gmtOffset_sec = 3600 * 9;
@@ -25,7 +31,6 @@ const int   daylightOffset_sec = 0;
 int selector = 0;
 
 struct tm timeinfo_now;
-
 struct tm timeinfo;
 int month;
 int day;
@@ -48,8 +53,7 @@ void send_to_slack() {
   M5.begin();
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) delay(500);
-  
-  http.begin(server, 443, "/services/xxx/yyy/zzz", slack_sub_ca);
+  http.begin(server, 443, slack_hock, slack_sub_ca);
   http.addHeader("Content-Type", "application/json");
   http.POST((uint8_t*)json_text, strlen(json_text));
 }
