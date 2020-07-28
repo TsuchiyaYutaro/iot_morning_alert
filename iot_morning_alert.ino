@@ -15,7 +15,7 @@ const char * slack_sub_ca =
 const char* ssid     = "ssid";
 const char* password = "password";
 
-slack_hock = "/services/xxx/yyy/zzz"
+const char* slack_hock = "/services/xxx/yyy/zzz";
 
 /// ------------------------------------------------------
 
